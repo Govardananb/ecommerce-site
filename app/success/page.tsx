@@ -1,26 +1,37 @@
 import Link from "next/link";
-import { Button } from "@/components/Button";
 
 export default function SuccessPage() {
     return (
-        <div className="min-h-[60vh] flex flex-col items-center justify-center p-4 text-center">
-            <div className="rounded-full bg-green-100 p-3 mb-6">
-                <svg className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-            </div>
+        <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center animate-fade-in">
+            <div className="max-w-xl space-y-12">
+                <div className="space-y-4">
+                    <p className="font-sans text-xs tracking-[0.2em] uppercase opacity-40">
+                        Order Confirmed
+                    </p>
+                    <h1 className="font-serif text-6xl md:text-7xl italic opacity-90">
+                        thank you.
+                    </h1>
+                </div>
 
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-                Thank you for your order!
-            </h1>
-            <p className="text-lg text-gray-600 mb-8 max-w-md">
-                We&apos;ve received your order and one of our team members will be in touch shortly.
-            </p>
+                <div className="space-y-6 font-sans text-muted leading-relaxed opacity-80 text-sm md:text-base">
+                    <p>
+                        Your order has been received with gratitude.
+                        <br />
+                        We are preparing your items with care and will notify you once they begin their journey to you.
+                    </p>
+                    <p className="italic font-serif opacity-60 text-lg">
+                        Welcome to the quiet builders club.
+                    </p>
+                </div>
 
-            <div className="flex gap-4">
-                <Button href="/">
-                    Continue Shopping
-                </Button>
+                <div className="pt-8">
+                    <Link
+                        href="/shop"
+                        className="inline-block border-b border-white/20 pb-1 text-xs tracking-widest hover:border-white/60 transition-colors uppercase font-sans"
+                    >
+                        continue to shop
+                    </Link>
+                </div>
             </div>
         </div>
     );
