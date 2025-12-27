@@ -3,7 +3,9 @@
 import { useShop } from "@/context/ShopContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function CheckoutPage() {
     const { cart, cartTotal, clearCart } = useShop();
@@ -39,10 +41,15 @@ export default function CheckoutPage() {
 
                 {/* Left: Form */}
                 <div className="space-y-12 animate-fade-in">
+                    <div className="pb-4">
+                        <Link href="/cart" className="font-sans text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">
+                            ← Back to Cart
+                        </Link>
+                    </div>
                     <header className="space-y-2 border-b border-white/10 pb-8">
-                        <h1 className="font-serif text-4xl italic opacity-90">checkout.</h1>
+                        <h1 className="font-serif text-4xl italic opacity-90">Checkout</h1>
                         <p className="font-sans text-xs tracking-widest uppercase opacity-60">
-                            Shipping & Payment
+                            shipping & payment
                         </p>
                     </header>
 
@@ -79,7 +86,7 @@ export default function CheckoutPage() {
 
                 {/* Right: Summary */}
                 <div className="lg:sticky lg:top-32 h-fit bg-white/5 p-8 space-y-8 animate-fade-in">
-                    <h3 className="font-serif text-xl opacity-80 border-b border-white/10 pb-4">in your bag.</h3>
+                    {/* <h3 className="font-serif text-xl opacity-80 border-b border-white/10 pb-4">in your bag.</h3> */}
 
                     <ul className="space-y-6 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
                         {cart.map((item) => (
@@ -120,6 +127,11 @@ export default function CheckoutPage() {
                         >
                             {isProcessing ? "Processing..." : "Place Order"}
                         </button>
+
+                        <div className="text-center space-y-2 pt-4 opacity-40 font-sans text-[10px]">
+                            <p>{siteConfig.policies.billing.gstText}</p>
+                            <p>Cancellations accepted within 24 hours</p>
+                        </div>
                     </div>
                 </div>
             </div>

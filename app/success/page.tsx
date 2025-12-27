@@ -15,18 +15,19 @@ export default function SuccessPage() {
 
                 <div className="space-y-6 font-sans text-muted leading-relaxed opacity-80 text-sm md:text-base">
                     <p>
-                        Your order has been received with gratitude.
-                        <br />
-                        We are preparing your items with care and will notify you once they begin their journey to you.
+                        your order has been received with gratitude.
                     </p>
-                    <p className="italic font-serif opacity-60 text-lg">
-                        Welcome to the quiet builders club.
+                    <p>
+                        inside your package, you will find your product identity card. scan it to claim ownership and view the permanent record of this acquisition.
+                    </p>
+                    <p className="italic font-serif opacity-60 text-lg pt-4">
+                        welcome to the quiet builders club.
                     </p>
                 </div>
 
                 <div className="pt-8">
                     <Link
-                        href="/shop"
+                        href="/products"
                         className="inline-block border-b border-white/20 pb-1 text-xs tracking-widest hover:border-white/60 transition-colors uppercase font-sans"
                     >
                         continue to shop

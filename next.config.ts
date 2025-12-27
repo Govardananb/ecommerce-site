@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'https',
+        hostname: 'ik.imagekit.io',
+        port: '',
+        pathname: '/**',
+      },
+      {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
@@ -12,3 +18,5 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Trigger restart for Notion fix

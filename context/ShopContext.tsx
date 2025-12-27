@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { Product } from "@/lib/mockData";
+import { Product } from "@/lib/types";
 
 export interface CartItem extends Product {
     quantity: number;
@@ -19,6 +19,8 @@ interface ShopContextType {
     cartTotal: number;
     cartCount: number;
     clearCart: () => void;
+    isCartOpen: boolean;
+    setIsCartOpen: (isOpen: boolean) => void;
 }
 
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
@@ -27,6 +29,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
     const [cart, setCart] = useState<CartItem[]>([]);
     const [wishlist, setWishlist] = useState<Product[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(false);
 
     // Load from local storage on mount
     useEffect(() => {
@@ -112,6 +115,8 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
                 cartTotal,
                 cartCount,
                 clearCart,
+                isCartOpen,
+                setIsCartOpen,
             }}
         >
             {children}

@@ -19,9 +19,9 @@ export default function CartPage() {
     if (cart.length === 0) {
         return (
             <div className="min-h-screen pt-32 px-6 flex flex-col items-center justify-center text-center space-y-6 animate-fade-in">
-                <p className="font-sans text-xs tracking-widest uppercase opacity-40">registry empty.</p>
+                <p className="font-sans text-xs tracking-widest uppercase opacity-40">cart empty.</p>
                 <Link
-                    href="/shop"
+                    href="/products"
                     className="border-b border-white/20 pb-1 text-[10px] tracking-widest hover:border-white/60 transition-colors uppercase font-sans"
                 >
                     collection
@@ -36,10 +36,13 @@ export default function CartPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     {/* Cart Items */}
                     <div className="lg:col-span-8 space-y-12">
+                        <header className="border-b border-white/10 pb-6">
+                            <h1 className="font-serif text-3xl italic opacity-90">your cart.</h1>
+                        </header>
                         <ul className="divide-y divide-white/5">
                             {cart.map((item) => (
                                 <li key={item.id} className="py-8 flex gap-8 group animate-fade-in">
-                                    <Link href={`/product/${item.id}`} className="relative w-24 aspect-[3/4] bg-white/5 overflow-hidden flex-shrink-0">
+                                    <Link href={`/products/${item.slug || item.id}`} className="relative w-24 aspect-[3/4] bg-white/5 overflow-hidden flex-shrink-0">
                                         <Image
                                             src={item.image}
                                             alt={item.name}
@@ -50,7 +53,7 @@ export default function CartPage() {
                                     <div className="flex-1 flex flex-col justify-between py-1">
                                         <div className="flex justify-between items-start">
                                             <div>
-                                                <Link href={`/product/${item.id}`}>
+                                                <Link href={`/products/${item.slug || item.id}`}>
                                                     <h3 className="font-sans text-sm uppercase tracking-wider opacity-90 hover:opacity-60 transition-opacity">
                                                         {item.name.toLowerCase()}
                                                     </h3>

@@ -49,3 +49,19 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(238, 237, 232, 0.4);
 }
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}

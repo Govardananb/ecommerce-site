@@ -1,59 +1,74 @@
-export interface Product {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  category: string;
+export interface MockProduct {
+    id: string;
+    name: string;
+    slug: string;
+    price: number;
+    description: string;
+    images: string[];
+    category: string;
+    specs: {
+        fabric: string;
+        fit: string;
+        durability: string;
+        aging: string;
+    };
 }
 
-export const products: Product[] = [
-  {
-    id: "1",
-    name: "Classic Leather Backpack",
-    price: 129.99,
-    description: "A durable and stylish leather backpack perfect for daily commute or weekend getaways. Features multiple compartments and premium hardware.",
-    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=800",
-    category: "Accessories"
-  },
-  {
-    id: "2",
-    name: "Minimalist Watch",
-    price: 199.50,
-    description: "Elegant minimalist watch with a genuine leather strap and scratch-resistant sapphire crystal. Water-resistant up to 50 meters.",
-    image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&q=80&w=800",
-    category: "Timepieces"
-  },
-  {
-    id: "3",
-    name: "Wireless Noise-Canceling Headphones",
-    price: 249.00,
-    description: "Immerse yourself in music with these high-fidelity wireless headphones. Active noise cancellation and 30-hour battery life.",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800",
-    category: "Electronics"
-  },
-  {
-    id: "4",
-    name: "Premium Cotton T-Shirt",
-    price: 35.00,
-    description: "Soft, breathable, and sustainably sourced cotton t-shirt. Available in various earthy tones. perfect for layering.",
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=800",
-    category: "Apparel"
-  },
-  {
-    id: "5",
-    name: "Ceramic Coffee Mug",
-    price: 24.00,
-    description: "Hand-crafted ceramic mug with a unique glaze. Large handle for a comfortable grip. Microwave and dishwasher safe.",
-    image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&q=80&w=800",
-    category: "Home"
-  },
-  {
-    id: "6",
-    name: "Desk Lamp",
-    price: 89.99,
-    description: "Modern LED desk lamp with adjustable brightness and color temperature. Sleek design that fits any workspace.",
-    image: "https://images.unsplash.com/photo-1507473888900-52e1adad8dbf?auto=format&fit=crop&q=80&w=800",
-    category: "Lighting"
-  },
+export const mockProducts: MockProduct[] = [
+    {
+        id: "prod_01",
+        name: "The Heavyweight Tee",
+        slug: "heavyweight-tee",
+        price: 85,
+        description: "A tee built for silence. 280 GSM cotton that drapes with intention. No logos, no noise. Just structure and softness that improves with every wash.",
+        images: ["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2000&auto=format&fit=crop"], // Placeholder
+        category: "Tops",
+        specs: {
+            fabric: "280 GSM Heavyweight Cotton",
+            fit: "Boxy, Relaxed",
+            durability: "Reinforced seams",
+            aging: "Softens, holds structure"
+        }
+    },
+    {
+        id: "prod_02",
+        name: "The Artisan Jacket",
+        slug: "artisan-jacket",
+        price: 240,
+        description: "Workwear refined for the studio. Durable canvas that remembers your movements. Unlined for layering, structured for presence.",
+        images: ["https://images.unsplash.com/photo-1551028919-38371387353f?q=80&w=2000&auto=format&fit=crop"], // Placeholder
+        category: "Outerwear",
+        specs: {
+            fabric: "12oz Duck Canvas",
+            fit: "True to size, room to layer",
+            durability: "Triple stitched",
+            aging: "Patina develops"
+        }
+    },
+    {
+        id: "prod_03",
+        name: "The Structured Cap",
+        slug: "structured-cap",
+        price: 55,
+        description: "Low profile, high structure. A cap that doesn't scream. Subtle branding, premium buckle, built to be the only one you need.",
+        images: ["https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=2000&auto=format&fit=crop"], // Placeholder
+        category: "Accessories",
+        specs: {
+            fabric: "Brushed Cotton Twill",
+            fit: "Adjustable, Low Profile",
+            durability: "Brass buckle",
+            aging: "Fades naturally"
+        }
+    }
 ];
+
+export async function getMockProducts(): Promise<MockProduct[]> {
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return mockProducts;
+}
+
+export async function getMockProductBySlug(slug: string): Promise<MockProduct | undefined> {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    return mockProducts.find(p => p.slug === slug);
+}

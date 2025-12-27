@@ -1,7 +1,7 @@
 "use client";
 
 import { useShop } from "@/context/ShopContext";
-import { Product } from "@/lib/mockData";
+import { Product } from "@/lib/types";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -43,20 +43,12 @@ export function ProductActions({ product }: { product: Product }) {
 
     return (
         <div className="flex flex-col gap-4 mt-8">
-            <div className="grid grid-cols-2 gap-4">
-                <button
-                    onClick={handleAddToCart}
-                    className="bg-white/5 hover:bg-white/10 text-foreground border border-white/10 py-4 uppercase tracking-[0.2em] text-[10px] font-sans transition-all"
-                >
-                    {addedToCart ? "Added" : "Add to Registry"}
-                </button>
-
+            <div className="grid grid-cols-1 gap-4">
                 <button
                     onClick={handleAcquireNow}
-                    disabled={isAcquiring}
-                    className="bg-white text-black py-4 uppercase tracking-[0.2em] text-[10px] font-sans hover:bg-white/90 transition-all disabled:opacity-50"
+                    className="bg-foreground text-background py-4 uppercase tracking-[0.2em] text-[10px] font-sans hover:bg-white/90 transition-all border border-transparent hover:border-white/10"
                 >
-                    {isAcquiring ? "Redirecting..." : "Acquire Now"}
+                    {addedToCart ? "Added" : "Acquire"}
                 </button>
             </div>
 

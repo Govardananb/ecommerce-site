@@ -1,12 +1,9 @@
 import Link from "next/link";
 
-export default function StoryPage() {
+export default function TermsPage() {
     return (
         <div className="min-h-screen pt-32 pb-24 px-6 bg-background animate-fade-in">
-            <div className="max-w-3xl mx-auto space-y-24">
-
-                {/* Header */}
-                {/* Header */}
+            <div className="max-w-2xl mx-auto space-y-12">
                 <header className="space-y-6">
                     <div className="pb-4">
                         <Link href="/" className="font-sans text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">
@@ -14,29 +11,27 @@ export default function StoryPage() {
                         </Link>
                     </div>
                     <h1 className="font-serif text-4xl italic leading-none opacity-90">
-                        About Yedhart
+                        Terms of Service
                     </h1>
                 </header>
 
-                {/* Main Content */}
                 <section className="space-y-6 font-sans text-sm leading-relaxed opacity-70">
                     <p>
-                        Yedhart exists for people who choose depth over display.
+                        By using this website and placing an order, you agree to our terms.
                     </p>
                     <p>
-                        In a world built on constant performance, we believe in consistency.
-                        In showing up quietly. In building something real over time.
+                        These terms exist to:
                     </p>
+                    <ul className="list-disc pl-4 space-y-2 opacity-80">
+                        <li>ensure fair use of the platform</li>
+                        <li>protect both you and us</li>
+                        <li>maintain a respectful buying experience</li>
+                    </ul>
                     <p>
-                        Our pieces are not designed to impress instantly.
-                        They’re designed to stay — to be worn often, lived in, and remembered.
-                    </p>
-                    <p className="pt-4 text-white opacity-90 font-serif italic text-lg">
-                        Authenticity, for us, is not a message.
-                        It’s a daily practice.
+                        All product details, prices, and policies are listed clearly.
+                        Any misuse, fraudulent activity, or abuse may result in order cancellation.
                     </p>
                 </section>
-
             </div>
         </div>
     );

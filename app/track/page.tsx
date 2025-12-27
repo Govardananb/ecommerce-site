@@ -1,12 +1,9 @@
 import Link from "next/link";
 
-export default function StoryPage() {
+export default function TrackPage() {
     return (
         <div className="min-h-screen pt-32 pb-24 px-6 bg-background animate-fade-in">
-            <div className="max-w-3xl mx-auto space-y-24">
-
-                {/* Header */}
-                {/* Header */}
+            <div className="max-w-2xl mx-auto space-y-12">
                 <header className="space-y-6">
                     <div className="pb-4">
                         <Link href="/" className="font-sans text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity">
@@ -14,29 +11,27 @@ export default function StoryPage() {
                         </Link>
                     </div>
                     <h1 className="font-serif text-4xl italic leading-none opacity-90">
-                        About Yedhart
+                        Track Your Order
                     </h1>
                 </header>
 
-                {/* Main Content */}
                 <section className="space-y-6 font-sans text-sm leading-relaxed opacity-70">
                     <p>
-                        Yedhart exists for people who choose depth over display.
+                        Once your order is placed, it moves through a short and careful process.
                     </p>
                     <p>
-                        In a world built on constant performance, we believe in consistency.
-                        In showing up quietly. In building something real over time.
+                        After dispatch, you’ll receive a tracking link via email or message.
+                        Use that link to check the current status of your shipment at any time.
                     </p>
                     <p>
-                        Our pieces are not designed to impress instantly.
-                        They’re designed to stay — to be worn often, lived in, and remembered.
+                        If your tracking information hasn’t updated yet, give it a little time.
+                        Courier systems may take a few hours to reflect movement.
                     </p>
-                    <p className="pt-4 text-white opacity-90 font-serif italic text-lg">
-                        Authenticity, for us, is not a message.
-                        It’s a daily practice.
+                    <p>
+                        If you’re unsure or need help, feel free to reach out.
+                        We’re here to assist.
                     </p>
                 </section>
-
             </div>
         </div>
     );

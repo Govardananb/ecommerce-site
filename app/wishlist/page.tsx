@@ -21,7 +21,7 @@ export default function WishlistPage() {
             <div className="min-h-screen pt-32 px-6 flex flex-col items-center justify-center text-center space-y-6 animate-fade-in">
                 <p className="font-sans text-xs tracking-widest uppercase opacity-40">empty.</p>
                 <Link
-                    href="/shop"
+                    href="/products"
                     className="border-b border-white/20 pb-1 text-[10px] tracking-widest hover:border-white/60 transition-colors uppercase font-sans"
                 >
                     collection
@@ -65,7 +65,7 @@ export default function WishlistPage() {
                             <p className="text-xs uppercase tracking-widest opacity-50">
                                 {product.category}
                             </p>
-                            <Link href={`/product/${product.id}`} className="block space-y-1 group-hover:opacity-80 transition-opacity">
+                            <Link href={`/products/${product.slug || product.id}`} className="block space-y-1 group-hover:opacity-80 transition-opacity">
                                 <div className="flex justify-between items-baseline gap-4">
                                     <h3 className="text-lg opacity-90">{product.name}</h3>
                                     <span className="text-lg opacity-90">${product.price}</span>
